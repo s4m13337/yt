@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>yt!</title>
+</head>
+<body>
+    <div class="header">
+        <a href="/"><h1>yt!</h1></a>
+    </div>
+    <div class="search">
+        <form action="/search">
+            <input type="text" name="query">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="footer">
+        &copy; s4m13337
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search results for {{ query }}</h2>
+<div class="search-results">
+    {% if results.channels|length != 0 %}
+        <div class="channel-result">
+            <h3>Channels</h3>
+            <div class="channel-result-container">
+                {% for channel in results.channels %}
+                    <div class="channel-result-wrapper">
+                        <div class="channel-result-thumbnail">
+                            <img src="{{ channel.thumbnail }}" width="80">
+                        </div>
+                        <div class="channel-result-title">{{ channel.title }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
+    {% endif %}
+    {% if results.videos|length !=0 %}
+        <div class="video-result-container">
+            <h3>Videos</h3>
+            {% for video in results.videos %}
+                <div class="video-result-wrapper">
+                    <div class="video-result-thumbnail">
+                        <a href="/watch/{{ video.videoId }}"><img src="{{ video.thumbnail }}" width="200"></a>
+                    </div>
+                    <div class="video-result-info">
+                        <div class="video-result-info-title">{{ video.title }}</div>
+                        <div class="video-result-info-creator">{{ video.creator }}</div>
+                        <div class="video-result-info-duration">{{ video. duration }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+    {% endif %}
+</div>
+{% endblock  %}
